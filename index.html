@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: A Beginner's Guide to Mutual Funds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Energetic & Playful -->
+    <!-- Narrative & Structure Plan: The infographic follows a clear, beginner-friendly narrative arc: 1. Hero Section: A powerful hook explaining the core concept: "Investing, Together." 2. How It Works: Visually break down the process from pooling money to professional management. 3. The Big Advantages: Highlight the four key benefits (Diversification, Management, Affordability, Liquidity) using strong icons. 4. Active vs. Passive: A simple bar chart showing the long-term underperformance of most active funds. 5. The Cost Factor: A powerful visualization comparing a low-cost vs. high-cost fund's growth. 6. Fund Types: Use a donut chart to show main categories and connect funds to goals. 7. Getting Started: A simple 3-step flowchart created with HTML/CSS. This structure guides the user from 'what it is' to 'what to do' in a logical, visual sequence. -->
+    <!-- Visualization & Content Choices:
+        - Data Point: Pooling Money -> Goal: Organize -> Viz: HTML/CSS Flow Diagram -> Justification: Clearly shows the flow from many investors to one portfolio. -> Method: HTML/CSS/Tailwind.
+        - Data Point: Diversification -> Goal: Inform -> Viz: HTML/CSS Pictograph -> Justification: Simple Unicode icons provide an instant visual for a diversified portfolio vs. a single stock. -> Method: HTML/CSS/Tailwind.
+        - Data Point: Active vs. Passive Performance -> Goal: Compare -> Viz: Bar Chart -> Justification: A stark, easy-to-read comparison showing how few active funds beat their benchmark. -> Method: Chart.js (Canvas).
+        - Data Point: Impact of Fees -> Goal: Change -> Viz: Line Chart -> Justification: Visually demonstrates the dramatic gap in returns between low-cost and high-cost funds over time. -> Method: Chart.js (Canvas).
+        - Data Point: Fund Categories -> Goal: Compare/Organize -> Viz: Donut Chart -> Justification: Shows the main fund categories and connects them to common investor goals. -> Method: Chart.js (Canvas).
+        - Data Point: Getting Started Process -> Goal: Organize -> Viz: HTML/CSS Flowchart -> Justification: A simple, non-technical visual guide to the first steps. -> Method: HTML/CSS/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F7F3E9; color: #4A4A4A; }
+        .hero-bg { background-color: #FF6B6B; }
+        .section-bg-1 { background-color: #4ECDC4; }
+        .section-bg-2 { background-color: #FFE66D; }
+        .section-bg-3 { background-color: #1A535C; }
+        .card { background-color: white; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); padding: 2rem; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 300px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        .title-main { font-weight: 900; color: #1A535C; }
+        .title-sub { font-weight: 700; color: #1A535C; }
+        .text-accent { color: #FF6B6B; }
+        .flowchart-step { border: 3px solid #1A535C; background-color: white; padding: 1.5rem; border-radius: 0.75rem; text-align: center; }
+        .flowchart-arrow { font-size: 2.5rem; color: #1A535C; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-bg text-white text-center py-20 px-6">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black mb-4">INVESTING, TOGETHER.</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto">A Mutual Fund is the simplest way to own a small piece of many different investments, all at once.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-16 px-6 space-y-20">
+
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl title-main">How It Works: The Core Idea</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-lg">It's a simple concept: pool money with other investors to create powerful diversification and unlock professional management.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="card">
+                    <h3 class="title-sub text-2xl mb-4 text-center">1. Money is Pooled</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-4">
+                        <div class="text-center">
+                            <span class="text-4xl">🧑‍💻</span><p class="font-semibold">$</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-4xl">🧑‍🏫</span><p class="font-semibold">$</p>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-4xl">👩‍⚕️</span><p class="font-semibold">$</p>
+                        </div>
+                         <div class="text-center">
+                            <span class="text-4xl">👨‍🎨</span><p class="font-semibold">$</p>
+                        </div>
+                        <div class="text-6xl mx-4 text-accent font-bold">&rarr;</div>
+                        <div class="text-center">
+                            <span class="text-6xl">💰</span>
+                            <p class="font-bold">One Big Pot</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-center text-gray-600">Many investors contribute money to a single fund.</p>
+                </div>
+                 <div class="card">
+                    <h3 class="title-sub text-2xl mb-4 text-center">2. A Portfolio is Built</h3>
+                     <div class="flex flex-wrap justify-center items-center gap-4">
+                         <div class="text-center">
+                            <span class="text-6xl">📈</span>
+                            <p class="font-bold">A Diverse Portfolio</p>
+                        </div>
+                        <div class="text-6xl mx-4 text-accent font-bold">&rarr;</div>
+                        <div class="grid grid-cols-4 gap-2 text-2xl text-center">
+                             <span> MSFT </span><span> AAPL </span><span> GOOG </span><span> AMZN </span>
+                             <span> JNJ </span><span> V </span><span> PG </span><span> NVDA </span>
+                             <span> TSLA </span><span> HD </span><span> MA </span><span> DIS </span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-center text-gray-600">A professional manager uses the money to buy hundreds of different investments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-bg-1 py-16 rounded-xl text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black">The Beginner's Advantage</h2>
+                    <p class="max-w-2xl mx-auto mt-2 text-lg">Mutual funds solve the biggest problems for new investors.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center bg-white/20 p-6 rounded-lg">
+                        <div class="text-6xl mb-4">🧺</div>
+                        <h3 class="text-2xl font-bold mb-2">Instant Diversification</h3>
+                        <p>Spreads your risk across many investments instantly.</p>
+                    </div>
+                    <div class="text-center bg-white/20 p-6 rounded-lg">
+                        <div class="text-6xl mb-4">🧑‍💼</div>
+                        <h3 class="text-2xl font-bold mb-2">Pro Management</h3>
+                        <p>Experts manage your money for you, saving you time.</p>
+                    </div>
+                    <div class="text-center bg-white/20 p-6 rounded-lg">
+                        <div class="text-6xl mb-4">💵</div>
+                        <h3 class="text-2xl font-bold mb-2">Affordability</h3>
+                        <p>Get started with a small amount of money.</p>
+                    </div>
+                    <div class="text-center bg-white/20 p-6 rounded-lg">
+                        <div class="text-6xl mb-4">💧</div>
+                        <h3 class="text-2xl font-bold mb-2">Liquidity</h3>
+                        <p>Easily sell your shares and get cash on any business day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl title-main">Active vs. Passive: The Great Debate</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-lg">Should your fund manager try to beat the market (Active) or just match it (Passive)? The data tells a clear story.</p>
+            </div>
+            <div class="card md:col-span-2">
+                <h3 class="title-sub text-2xl mb-2 text-center">Trying to Beat the Market is Hard</h3>
+                <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">Because active funds have higher fees, they face a major hurdle. Over time, very few succeed in outperforming their simple, low-cost passive benchmarks.</p>
+                <div class="chart-container">
+                    <canvas id="activePassiveChart"></canvas>
+                </div>
+                 <p class="text-center text-sm text-gray-500 mt-4">Data reflects % of U.S. stock funds failing to beat their benchmarks.</p>
+            </div>
+        </section>
+
+
+        <section class="section-bg-2 py-16 rounded-xl">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl title-main">The Hidden Drag: How Fees Impact Growth</h2>
+                    <p class="max-w-2xl mx-auto mt-2 text-lg">Fees may seem small, but over decades they can consume a huge portion of your returns. Minimizing costs is the key to long-term success.</p>
+                </div>
+                <div class="card">
+                     <h3 class="title-sub text-2xl mb-2 text-center">$10,000 Invested Over 30 Years</h3>
+                     <p class="text-center text-gray-600 mb-6 max-w-3xl mx-auto">This chart shows the massive difference in final value between a fund with a low 0.1% expense ratio and one with a common 1.0% ratio, both assuming 7% annual growth.</p>
+                     <div class="chart-container">
+                        <canvas id="feeImpactChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl title-main">Matching a Fund to Your Goal</h2>
+                <p class="max-w-2xl mx-auto mt-2 text-lg">Different funds are built for different purposes. The main types are based on what they invest in: stocks for growth, and bonds for stability.</p>
+            </div>
+            <div class="grid md:grid-cols-5 gap-10 items-center">
+                <div class="card md:col-span-2">
+                     <h3 class="title-sub text-2xl mb-4 text-center">Primary Fund Categories</h3>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="fundTypesChart"></canvas>
+                    </div>
+                </div>
+                <div class="md:col-span-3 space-y-6">
+                    <div class="card">
+                        <h3 class="font-bold text-xl"><span class="text-accent">■</span> Stock Funds</h3>
+                        <p class="text-gray-600 ml-6">For long-term growth. Higher risk, but higher potential return. Ideal for goals like retirement that are many years away.</p>
+                    </div>
+                    <div class="card">
+                         <h3 class="font-bold text-xl"><span class="text-[#4ECDC4]">■</span> Bond Funds</h3>
+                        <p class="text-gray-600 ml-6">For income and stability. Lower risk than stocks. Good for balancing a portfolio or for short-term goals.</p>
+                    </div>
+                     <div class="card">
+                         <h3 class="font-bold text-xl"><span class="text-[#FFE66D]">■</span> Balanced & Target-Date Funds</h3>
+                        <p class="text-gray-600 ml-6">A pre-mixed portfolio of stocks and bonds in one fund. A simple, all-in-one solution for many investors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-bg-3 py-16 rounded-xl text-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black">How to Get Started in 3 Simple Steps</h2>
+                    <p class="max-w-2xl mx-auto mt-2 text-lg">Ready to invest? The process is straightforward.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+                    <div class="flowchart-step flex-1 max-w-xs text-gray-800">
+                        <div class="text-6xl mb-2">1️⃣</div>
+                        <h3 class="text-xl font-bold">Define Your Goal</h3>
+                        <p>What are you saving for? How long do you have?</p>
+                    </div>
+                    <div class="flowchart-arrow transform md:rotate-0 rotate-90">&darr;</div>
+                    <div class="flowchart-step flex-1 max-w-xs text-gray-800">
+                        <div class="text-6xl mb-2">2️⃣</div>
+                        <h3 class="text-xl font-bold">Choose an Account</h3>
+                        <p>Open a retirement (IRA) or brokerage account online.</p>
+                    </div>
+                     <div class="flowchart-arrow transform md:rotate-0 rotate-90">&darr;</div>
+                    <div class="flowchart-step flex-1 max-w-xs text-gray-800">
+                        <div class="text-6xl mb-2">3️⃣</div>
+                        <h3 class="text-xl font-bold">Pick a Low-Cost Fund</h3>
+                        <p>Start with a simple Target-Date or S&P 500 Index Fund.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 bg-[#F7F3E9]">
+        <p class="text-gray-600">This infographic is for educational purposes only. All investing involves risk.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const FONT_COLOR = '#4A4A4A';
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.font.weight = '600';
+            Chart.defaults.color = FONT_COLOR;
+
+            const wrapText = (str) => {
+                if (str.length <= 16) return str;
+                const words = str.split(' ');
+                let lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > 16) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) lines.push(currentLine);
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            new Chart(document.getElementById('activePassiveChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['After 5 Years', 'After 10 Years', 'After 15 Years'],
+                    datasets: [{
+                        label: '% of Active Funds Failing to Beat Benchmark',
+                        data: [85, 92, 94],
+                        backgroundColor: '#FF6B6B',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { callback: value => value + '%' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: context => `${context.raw}% of active funds underperformed.`
+                            }
+                        }
+                    }
+                }
+            });
+
+            const generateFeeData = (rate) => {
+                const years = Array.from({ length: 31 }, (_, i) => i);
+                return years.map(year => 10000 * Math.pow(1.07 - rate, year));
+            };
+
+            new Chart(document.getElementById('feeImpactChart'), {
+                type: 'line',
+                data: {
+                    labels: Array.from({ length: 31 }, (_, i) => `Year ${i}`),
+                    datasets: [
+                        {
+                            label: 'Low-Cost Fund (0.1% Fee)',
+                            data: generateFeeData(0.001),
+                            borderColor: '#4ECDC4',
+                            backgroundColor: '#4ECDC4',
+                            tension: 0.1,
+                            pointRadius: 0,
+                        },
+                        {
+                            label: 'High-Cost Fund (1.0% Fee)',
+                            data: generateFeeData(0.01),
+                            borderColor: '#FF6B6B',
+                            backgroundColor: '#FF6B6B',
+                            tension: 0.1,
+                             pointRadius: 0,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: value => '$' + (value / 1000) + 'k'
+                            }
+                        },
+                         x: { ticks: { maxTicksLimit: 7 } }
+                    },
+                    plugins: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: (context) => {
+                                    return `${context.dataset.label}: $${Math.round(context.raw).toLocaleString()}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('fundTypesChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Stock Funds', 'Bond Funds', ['Balanced &', 'Target-Date Funds']],
+                    datasets: [{
+                        data: [55, 25, 20],
+                        backgroundColor: ['#FF6B6B', '#4ECDC4', '#FFE66D'],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
